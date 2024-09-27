@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
-  - Pickupable
-  - Chest
+  - Normal
+  - Silver
+  - Gold
   - Pickup
   layers:
   - Default
@@ -50,4 +51,10 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 3502668907
+    locked: 0
+  - name: chest
+    uniqueID: 4055406641
+    locked: 0
+  - name: enemy
+    uniqueID: 1491084847
     locked: 0

@@ -1,0 +1,123 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public float speed = 3.0f; // 敌人的移动速度
+    public float changeTime = 3.0f; // 改变方向的时间间隔
+    private float timer;
+
+
+    public GameObject player = null; // 存放主角对象
+    public float patrolRadius = 5f; // 巡逻路径半径
+    public float visionRadius = 10f; // 敌人的视野半径
+    public Transform[] patrolPoints; // 巡逻路径上的各个路点
+
+    private int currentPatrolIndex = 0; // 当前巡逻点的索引
+    private bool chasingPlayer = false; // 是否在追击玩家
+    private bool hasAttacked = false; // 是否已经攻击过
+    private Vector2 origin; // 初始位置
+    private bool returningToOrigin = false; // 是否正在返回初始位置
+
+    void Start()
+    {
+        timer = changeTime;
+        origin = transform.position; // 记录敌人的初始位置
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.isKinematic = true; // 设置为运动学  
+        }
+    }
+
+    void Update()
+    {
+        if (!chasingPlayer && !returningToOrigin) // 如果没在追击玩家，也没在返回初始位置，执行巡逻逻辑
+        {
+            Patrol();
+        }
+
+        if (!hasAttacked) // 如果还没有攻击过，检查视野范围
+        {
+            CheckVision();
+        }
+
+        if (returningToOrigin) // 如果正在返回原点
+        {
+            ReturnToOrigin();
+        }
+    }
+
+    private void Patrol() // 敌人在路点之间巡逻
+    {
+        if (patrolPoints.Length == 0) return; // 没有设置路点时，直接返回
+
+        Transform targetPoint = patrolPoints[currentPatrolIndex];
+        transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
+
+        // 当敌人到达当前路点时，转向下一个路点
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
+        {
+            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length; // 依次循环路点
+        }
+    }
+
+    private void CheckVision() // 检查玩家是否进入视野范围
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer <= visionRadius) // 玩家在视野范围内
+        {
+            chasingPlayer = true; // 进入追击状态
+            ChasePlayer(); // 执行追击逻辑
+        }
+        else
+        {
+            chasingPlayer = false; // 玩家离开视野范围时，停止追击
+        }
+    }
+
+    private void ChasePlayer() // 追击玩家
+    {
+        if (chasingPlayer && !hasAttacked)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
+
+            // 如果敌人接近玩家，尝试触发攻击
+            if (Vector2.Distance(transform.position, player.transform.position) < 0.5f)
+            {
+                // 在 OnCollisionEnter2D 中处理实际的碰撞检测和伤害
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) // 检测与玩家的碰撞
+    {
+        Player playerScript = other.gameObject.GetComponent<Player>(); // 获取玩家脚本
+        if (playerScript != null && !hasAttacked) // 如果玩家存在且没有攻击过
+        {
+            playerScript.ChangeHealth(-1); // 减少玩家生命值
+            Debug.Log("玩家的生命值减少了 1 点");
+
+            // 攻击后停止追击并返回原点
+            hasAttacked = true;
+            chasingPlayer = false;
+            returningToOrigin = true; // 标记为返回原点状态
+        }
+    }
+
+    private void ReturnToOrigin() // 返回初始位置
+    {
+        transform.position = Vector2.MoveTowards(transform.position, origin, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, origin) < 0.1f) // 如果到达了原点
+        {
+            returningToOrigin = false; // 停止返回
+            //hasAttacked = false; // 重置攻击状态，允许再次攻击
+        }
+    }
+
+   
+}

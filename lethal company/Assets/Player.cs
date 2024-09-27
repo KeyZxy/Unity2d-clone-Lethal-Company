@@ -13,7 +13,12 @@ public class Player : MonoBehaviour
     public float pickupRange = 1f; // 拾取范围  
     public Transform holdParent; // 存放被拾取物体的父物体  
     public GameObject pickedObject = null; // 当前拾取的物体  
-    private bool isHoldingObject = false;
+    public bool isHoldingObject = false;
+
+    public float Hp = 100f;
+    public float maxHp = 100f;
+
+    public int Coin = 10;
 
     private Camera mainCamera;
 
@@ -64,7 +69,7 @@ public class Player : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickupRange);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Pickup")) // Ensure object is pickable by checking its tag
+            if (collider.CompareTag("Gold")||collider.CompareTag("Silver")||collider.CompareTag("Normal")|| collider.CompareTag("Pickup")) 
             {
                 pickedObject = collider.gameObject;
                 pickedObject.transform.SetParent(holdParent);
@@ -98,4 +103,31 @@ public class Player : MonoBehaviour
             rb.rotation = angle; // 直接设置角度  
         }
     }
+    public void ChangeHealth(float health)
+    {
+        Hp += health;
+        if (Hp < 0)
+        {
+            Hp = 0;
+            // 可选：在血量降到0时处理死亡逻辑  
+            HandleDeath();
+        }
+
+        // 确保血量不超过最大值  
+        if (Hp > maxHp)
+        {
+            Hp = maxHp;
+        }
+    }
+    private void HandleDeath()
+    {
+        // 处理玩家死亡的逻辑  
+        Debug.Log("Player has died.");
+        // 例如：禁用玩家控制、播放死亡动画等  
+    }
+    public void ChangeCoin(int coin)
+    {
+       Coin += coin;
+    }
+
 }

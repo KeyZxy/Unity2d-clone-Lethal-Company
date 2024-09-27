@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7542724395933981539}
   m_Layer: 0
   m_Name: Gold
-  m_TagString: Pickup
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.66683, y: 0.35719466, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -792298389
-  m_SortingLayer: 2
+  m_SortingLayerID: -239560655
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1361855178, guid: 15a154c9cb0da474188e315f0310a65a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
