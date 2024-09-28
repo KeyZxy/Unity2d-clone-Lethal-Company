@@ -2,133 +2,141 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomGenerate : MonoBehaviour
+public class RoomGenerator : MonoBehaviour
 {
-    int[] dy = new int[4] { -1, 0, 1, 0 };
-    int[] dx = new int[4] { 0, 1, 0, -1 };
+    /// <summary>
+    /// 方向
+    /// </summary>
+    public enum Direction
+    {
+        TOP = 0,
+        RIGHT = 1,
+        LEFT = 3,
+        BOTTOM = 2
+    }
 
-    List<GameObject> doors;
+    //基础房间预制体
+    public GameObject baseRoom;
 
-    public GameObject[,] roomList;
+    //下次生成房间的方向
+    private Direction direction;
 
-    public GameObject[,] roomPrefabs;
+    //房间最大个数
+    public int maxCreateNum;
 
-    [Header("Unity Setup")]
-    public GameObject[] rooms; // Assume [0] = Start Room, [1] = Indoor, [2] = Outdoor
-    public GameObject doorPrefab; // Only one type of door
+    //房间层级
+    public LayerMask roomLayer;
 
+    //当前房间列表
+    private List<Room> roomList = new List<Room>();
 
+    public GameObject startRoom;
+    public GameObject endRoom;
+
+    //生成点
+    public Transform spawnPoint;
+    //生成点偏移量
+    public float xOffset, yOffset;
+    //检测半径（当前位置是否有一个房间）
+    public float roomColliderRadius;
+
+   
+
+    // Start is called before the first frame update
     void Start()
     {
+        CreateRoom();
 
-    }
-
-    public void SetPrefabs()
-    {
-        roomPrefabs = new GameObject[1, 3];
-
-        // Assign rooms to the array (0: Start Room, 1: Indoor, 2: Outdoor)
-        roomPrefabs[0, 0] = rooms[0]; // Start Room
-        roomPrefabs[0, 1] = rooms[1]; // Indoor
-        roomPrefabs[0, 2] = rooms[2]; // Outdoor
-    }
-
-    public void ClearRoom()
-    {
-        // Destroy existing rooms
-        if (roomList != null)
+        foreach (var room in roomList)
         {
-            for (int i = 0; i < roomList.GetLength(0); i++)
-            {
-                for (int j = 0; j < roomList.GetLength(1); j++)
-                {
-                    if (roomList[i, j] != null)
-                    {
-                        Destroy(roomList[i, j]);
-                    }
-                }
-            }
+            CheckRoomDoor(room, room.transform.position);
         }
 
-        // Destroy all doors
-        if (doors != null)
-        {
-            foreach (GameObject door in doors)
-            {
-                Destroy(door);
-            }
-            doors.Clear();
-        }
+        startRoom = roomList[0].gameObject;
+        endRoom = roomList[maxCreateNum - 1].gameObject;
+
     }
 
-    public void CreateRoom(int stage, int size)
+    // Update is called once per frame
+    void Update()
     {
-        roomList = new GameObject[size, size];
-        doors = new List<GameObject>();
 
-        Vector3 roomPos = new Vector3(0, 0, 0);
+    }
 
-        for (int i = 0; i < size; i++)
+    /// <summary>
+    /// 随机创建房间方向
+    /// </summary>
+    void RandomDirection()
+    {
+        do
         {
-            for (int j = 0; j < size; j++)
+            direction = (Direction)Random.Range(0, 4);
+
+            switch (direction)
             {
-                int roomNum = GameControl.instance.stageGenerate.stageArr[i, j];
-                if (roomNum == 0)
-                {
-                    roomPos += new Vector3(15, 0, 0);
-                    continue;
-                }
-
-                GameObject room = Instantiate(roomPrefabs[0, roomNum - 1], roomPos, Quaternion.identity);
-                roomList[i, j] = room;
-
-                roomPos += new Vector3(15, 0, 0);
+                case Direction.LEFT:
+                    spawnPoint.position += new Vector3(-xOffset, 0, 0);
+                    break;
+                case Direction.RIGHT:
+                    spawnPoint.position += new Vector3(xOffset, 0, 0);
+                    break;
+                case Direction.BOTTOM:
+                    spawnPoint.position += new Vector3(0, -yOffset, 0);
+                    break;
+                case Direction.TOP:
+                    spawnPoint.position += new Vector3(0, yOffset, 0);
+                    break;
             }
 
-            roomPos = new Vector3(0, roomPos.y, 0);
-            roomPos += new Vector3(0, -10, 0);
-        }
+        } while (Physics2D.OverlapCircle(spawnPoint.position, roomColliderRadius, roomLayer));
 
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
-                int roomNum = GameControl.instance.stageGenerate.stageArr[i, j];
-                if (roomNum == 0)
-                {
-                    continue;
-                }
 
-                CreateDoor(i, j);
-            }
-        }
     }
 
-    public void CreateDoor(int y, int x)
+    /// <summary>
+    /// 创建随机地图
+    /// </summary>
+    void CreateRoom()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < maxCreateNum; i++)
         {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if (ny < 0 || nx < 0 || ny >= 5 || nx >= 5)
-                continue;
-            if (GameControl.instance.stageGenerate.stageArr[ny, nx] == 0)
-                continue;
-
-            GameObject door = Instantiate(doorPrefab);
-            door.transform.SetParent(roomList[y, x].GetComponent<Room>().doorPosition[i]);
-            door.transform.localPosition = Vector3.zero;
-            door.transform.localRotation = Quaternion.identity;
-
-            door.GetComponent<Door>().doorDir = i;
-            
-
-            doors.Add(door);
+            CreateRoomObj(baseRoom, spawnPoint.position);
+            RandomDirection();
         }
     }
 
-    private void Update()
+    /// <summary>
+    /// 创建房间
+    /// </summary>
+    /// <param name="room">房间预制体对象</param>
+    /// <param name="pos">位置</param>
+    void CreateRoomObj(GameObject room, Vector3 pos)
     {
-        // No need to check for room clearance or door states.
+        GameObject obj = Instantiate(room, pos, Quaternion.identity);
+        // obj.transform.position = pos;
+        roomList.Add(obj.GetComponent<Room>());
     }
+
+    /// <summary>
+    /// 检测当前房间周围的房间数量
+    /// </summary>
+    /// <param name="room"></param>
+    /// <param name="pos"></param>
+    void CheckRoomDoor(Room room, Vector3 pos)
+    {
+        Collider2D left = Physics2D.OverlapCircle(pos + new Vector3(-xOffset, 0, 0), roomColliderRadius, roomLayer);
+        Collider2D right = Physics2D.OverlapCircle(pos + new Vector3(xOffset, 0, 0), roomColliderRadius, roomLayer);
+        Collider2D top = Physics2D.OverlapCircle(pos + new Vector3(0, yOffset, 0), roomColliderRadius, roomLayer);
+        Collider2D bottom = Physics2D.OverlapCircle(pos + new Vector3(0, -yOffset, 0), roomColliderRadius, roomLayer);
+
+        room.isLeft = left;
+        room.isRight = right;
+        room.isTop = top;
+        room.isBottom = bottom;
+
+        room.UpdateRoomState();
+    }
+
+
 }
+

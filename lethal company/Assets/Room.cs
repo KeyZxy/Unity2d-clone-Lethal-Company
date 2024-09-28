@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public bool playerInRoom = false;
+    // 四个门的引用
+    public GameObject doorLeft, doorRight, doorTop, doorBottom;
 
-    public Transform cameraPosition;
-    public Transform[] doorPosition;
-    public Transform[] movePosition;
+    // 是否启用某个门
+    public bool isLeft;
+    public bool isRight;
+    public bool isTop;
+    public bool isBottom;
 
- 
-    void Update()
+    // 门的数量
+    public int doorNumber;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        if (playerInRoom)
-        {
-            CameraSetting();
-        }
+        // 根据布尔值启用或禁用对应的门
+        if (doorLeft != null) doorLeft.SetActive(isLeft);
+        if (doorRight != null) doorRight.SetActive(isRight);
+        if (doorBottom != null) doorBottom.SetActive(isBottom);
+        if (doorTop != null) doorTop.SetActive(isTop);
+
+        // 更新门的数量
+        UpdateRoomState();
     }
-    void CameraSetting()
+
+    public void UpdateRoomState()
     {
-        float cameraMoveSpeed = 0.3f;
-        GameControl.instance.myCamera.transform.SetParent(cameraPosition);
-        GameControl.instance.myCamera.transform.localPosition = Vector3.MoveTowards(GameControl.instance.myCamera.transform.localPosition, new Vector3(0, 0, 0), cameraMoveSpeed);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerInRoom = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerInRoom = false;
-        }
+        doorNumber = 0; // 重置计数器
+
+        if (isLeft) doorNumber++;
+        if (isRight) doorNumber++;
+        if (isTop) doorNumber++;
+        if (isBottom) doorNumber++;
     }
 }
