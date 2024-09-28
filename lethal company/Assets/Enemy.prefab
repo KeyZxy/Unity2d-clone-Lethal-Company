@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.155336, y: -0.50338906, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1491084847
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 767930798, guid: 247e5e8ba8dd17a48bb857c94f427cac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,3 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f9c919ced30914f87e4252f37932a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  changeTime: 3
+  player: {fileID: 7195829106195487235, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+  patrolRadius: 5
+  visionRadius: 5
+  patrolPoints: []

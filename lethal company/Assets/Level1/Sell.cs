@@ -34,7 +34,7 @@ public class Sell : MonoBehaviour
         }
     }
 
-    void TrySellChest()
+    void TrySellChest()//按一下e放下物体，按第二下拾取物体并出售
     {
         // 检查 playerComponent 和玩家是否持有物体
         if (playerComponent != null && playerComponent.pickedObject != null)

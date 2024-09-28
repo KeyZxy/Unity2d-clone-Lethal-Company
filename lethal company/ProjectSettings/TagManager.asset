@@ -11,6 +11,8 @@ TagManager:
   - Pickup
   - Stage
   - door
+  - InSide
+  - OutSide
   layers:
   - Default
   - TransparentFX
