@@ -8,7 +8,10 @@ public class CameraLookAt : MonoBehaviour
     public Transform target;  // 要跟随的目标  
     public Vector3 offset;    // 相机与目标之间的偏移  
     public float smoothSpeed = 0.125f; // 平滑跟随的速度  
-
+    private void Update()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
     private void LateUpdate()
     {
         if (target != null)

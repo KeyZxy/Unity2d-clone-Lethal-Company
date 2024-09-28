@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     private float timer;
 
 
-    public GameObject player = null; // 存放主角对象
+    public GameObject player ; // 存放主角对象
     public float patrolRadius = 5f; // 巡逻路径半径
     public float visionRadius = 10f; // 敌人的视野半径
     public Transform[] patrolPoints; // 巡逻路径上的各个路点
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private int currentPatrolIndex = 0; // 当前巡逻点的索引
     private bool chasingPlayer = false; // 是否在追击玩家
     private bool hasAttacked = false; // 是否已经攻击过
-    private Vector2 origin; // 初始位置
+    public Vector2 origin; // 初始位置
     private bool returningToOrigin = false; // 是否正在返回初始位置
 
     void Start()
@@ -34,6 +34,10 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player"); // 确保寻找带有"Player"标签的对象  
+        }
         if (!chasingPlayer && !returningToOrigin) // 如果没在追击玩家，也没在返回初始位置，执行巡逻逻辑
         {
             Patrol();

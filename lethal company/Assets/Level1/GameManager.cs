@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private GameObject play;
     private int rand; // 随机目标
     private int startHour = 7; // 游戏开始时的小时
-    private int startMinute = 0; // 游戏开始时的分钟
+   // private int startMinute = 0; // 游戏开始时的分钟
 
     void Start()
     {

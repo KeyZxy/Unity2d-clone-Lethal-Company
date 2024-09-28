@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 977574473496553499}
   - component: {fileID: 3929920593270452513}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy(Level1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   changeTime: 3
-  player: {fileID: 7195829106195487235, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+  player: {fileID: 0}
   patrolRadius: 5
   visionRadius: 5
   patrolPoints: []
+  origin: {x: 0, y: 0}
