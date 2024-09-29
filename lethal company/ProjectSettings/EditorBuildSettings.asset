@@ -33,6 +33,6 @@ EditorBuildSettings:
     path: Assets/UI/Main3.unity
     guid: f695e25133ecd4e408ed4066c3abeed6
   - enabled: 1
-    path: Assets/Shop.unity
+    path: Assets/Shop/Shop.unity
     guid: fbca6ddbffeeae8498a2fcb288fc6ce2
   m_configObjects: {}

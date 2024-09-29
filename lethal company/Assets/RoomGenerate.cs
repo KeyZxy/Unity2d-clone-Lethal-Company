@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
+    public GameObject player;
+    
     public GameObject startRoomPrefab;
     public GameObject indoorRoomPrefab;
     public GameObject outdoorRoomPrefab;
@@ -40,7 +44,14 @@ public class RoomGenerator : MonoBehaviour
         SpawnEnemies();
         SpawnChest();
     }
-
+    private void Update()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player"); // 确保寻找带有"Player"标签的对象  
+        }
+        PlayerInside();
+    }
     void CreateRoom()
     {
         for (int i = 0; i < maxCreateNum; i++)
@@ -181,6 +192,7 @@ public class RoomGenerator : MonoBehaviour
         LEFT = 3,
         BOTTOM = 2
     }
+    //生成宝藏
     void SpawnChest()
     {
         foreach (Room room in roomList)
@@ -197,5 +209,21 @@ public class RoomGenerator : MonoBehaviour
             }
         }
     }
-
+    //判断玩家是否在房间内
+    public void PlayerInside()
+    {
+        foreach (Room room in roomList)
+        {
+            BoxCollider2D roomCollider = room.GetComponent<BoxCollider2D>();
+            if (roomCollider.bounds.Contains(player.transform.position))
+            {
+                room.PlayerInRoom = true;
+                CameraControl.instance.ChangeTarget(room.transform);
+            }
+            else
+            {
+                room.PlayerInRoom = false;
+            }
+        }
+    }
 }

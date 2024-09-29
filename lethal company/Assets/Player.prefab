@@ -233,7 +233,7 @@ MonoBehaviour:
   isHoldingObject: 0
   Hp: 100
   maxHp: 100
-  Coin: 50
+  Coin: 200
   skillName: 
   bulletPrefab: {fileID: 8673161727869911607, guid: 2e8f2ca8ea62e6845b6fc7df6875e2c9, type: 3}
   bulletSpawnPoint: {fileID: 3072142590676860102}

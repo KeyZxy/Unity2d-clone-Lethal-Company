@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    //玩家是否在房间
+    public bool PlayerInRoom = false;
     // 四个门的引用
     public GameObject doorLeft, doorRight, doorTop, doorBottom;
 

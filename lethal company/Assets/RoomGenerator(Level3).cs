@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomGeneratorLevel3 : MonoBehaviour
 {
+    public GameObject player;
+
     public GameObject startRoomPrefab;
     public GameObject indoorRoomPrefab;
     public GameObject outdoorRoomPrefab;
@@ -40,7 +42,14 @@ public class RoomGeneratorLevel3 : MonoBehaviour
         SpawnEnemies();
         SpawnChest();
     }
-
+    private void Update()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player"); // 确保寻找带有"Player"标签的对象  
+        }
+        PlayerInside();
+    }
     void CreateRoom()
     {
         for (int i = 0; i < maxCreateNum; i++)
@@ -58,7 +67,22 @@ public class RoomGeneratorLevel3 : MonoBehaviour
             RandomDirection();
         }
     }
-
+    public void PlayerInside()
+    {
+        foreach (Room room in roomList)
+        {
+            BoxCollider2D roomCollider = room.GetComponent<BoxCollider2D>();
+            if (roomCollider.bounds.Contains(player.transform.position))
+            {
+                room.PlayerInRoom = true;
+                CameraControl.instance.ChangeTarget(room.transform);
+            }
+            else
+            {
+                room.PlayerInRoom = false;
+            }
+        }
+    }
     void RandomDirection()
     {
         Direction direction = (Direction)Random.Range(0, 4);
