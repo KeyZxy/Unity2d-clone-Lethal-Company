@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sell : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class Sell : MonoBehaviour
         if (playerInArea && playerComponent != null && Input.GetKeyDown(KeyCode.E))
         {
             TrySellChest();
+        }
+        // 检查玩家是否在区域内并按下R键
+        if (playerInArea && playerComponent != null && Input.GetKeyDown(KeyCode.R))
+        {
+            // 记录当前场景名称  
+            PlayerPrefs.SetString("CurrentMainScene", SceneManager.GetActiveScene().name);
+            // 可以加载商店场景，例如：  
+            SceneManager.LoadScene("Shop"); // 替换为你的商店场景名称  
         }
     }
 

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public int min;
+    public int max;
     public int playerTotalCoin;
     public float gamingTime = 180;
     public float gamingTimeNow = 0;
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         play = GameObject.FindGameObjectWithTag("Player");
         playerComponent = play.GetComponent<Player>();
-        rand = UnityEngine.Random.Range(100, 250);
+        rand = UnityEngine.Random.Range(min, max);
     }
 
     void Update()

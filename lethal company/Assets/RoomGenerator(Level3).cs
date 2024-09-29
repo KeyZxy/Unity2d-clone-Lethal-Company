@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomGenerator : MonoBehaviour
+public class RoomGeneratorLevel3 : MonoBehaviour
 {
     public GameObject startRoomPrefab;
     public GameObject indoorRoomPrefab;
@@ -10,7 +10,7 @@ public class RoomGenerator : MonoBehaviour
 
     public GameObject[] indoorEnemyPrefabs; // 室内敌人预制体  
     public GameObject[] outdoorEnemyPrefabs; // 室外敌人预制体  
-   
+
     public GameObject[] chests; //宝藏预制体
     public int maxCreateNum; // 房间最大个数  
     public LayerMask roomLayer;
@@ -185,7 +185,7 @@ public class RoomGenerator : MonoBehaviour
     {
         foreach (Room room in roomList)
         {
-            if (room.CompareTag("InSide")) // 室内房间  
+            if (room.CompareTag("InSide")|| room.CompareTag("OutSide")) // 室内和室外房间  
             {
                 // 为每个室内房间添加 ItemSpawner 组件  
                 ItemSpawner itemSpawner = room.gameObject.AddComponent<ItemSpawner>();
@@ -197,5 +197,4 @@ public class RoomGenerator : MonoBehaviour
             }
         }
     }
-
 }

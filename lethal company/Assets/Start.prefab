@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 3417903044025277385}
   m_Layer: 7
   m_Name: Start
-  m_TagString: Untagged
+  m_TagString: Start
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1133,6 +1133,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8025587248118744623}
     m_Modifications:
+    - target: {fileID: 194800513217523042, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 224214220427903893, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016046033325135180, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354662238955229350, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656496072883203701, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901655431657702980, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 5398471638438899257, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44
@@ -1173,9 +1197,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5503647390171990345, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 6072291778092689052, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
       propertyPath: m_Name
       value: RoomArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240946754569219929, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282864151992220629, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515930879838914204, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326802982662163755, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594304427456942112, guid: 99c74d1bd3687b642b5cd01570626908, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

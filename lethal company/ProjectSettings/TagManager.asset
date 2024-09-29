@@ -13,6 +13,11 @@ TagManager:
   - door
   - InSide
   - OutSide
+  - Shilaimu
+  - Enemy
+  - Start
+  - Wall
+  - Door
   layers:
   - Default
   - TransparentFX

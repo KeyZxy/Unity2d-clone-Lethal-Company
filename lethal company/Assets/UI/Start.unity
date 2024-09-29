@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117827458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 409380717}
+        m_TargetAssemblyTypeName: Level3, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117827458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +461,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407745720}
   m_CullTransparentMesh: 1
+--- !u!1 &409380716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409380718}
+  - component: {fileID: 409380717}
+  m_Layer: 0
+  m_Name: Level3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &409380717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409380716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c7b9bd4b0f3714d8290bd1601d8c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &409380718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409380716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 452.5, y: 254.66666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491206929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,12 +1195,12 @@ RectTransform:
   - {fileID: 1015774517}
   - {fileID: 220206849}
   - {fileID: 253462622}
+  - {fileID: 735553932}
   - {fileID: 787349022}
   - {fileID: 2105647305}
   - {fileID: 491206930}
   - {fileID: 1262031847}
   - {fileID: 117827456}
-  - {fileID: 735553932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1658,3 +1714,4 @@ SceneRoots:
   - {fileID: 507340875}
   - {fileID: 913499324}
   - {fileID: 718224909}
+  - {fileID: 409380718}
