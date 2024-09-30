@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI; // 记得引入 UI 命名空间  
 
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     public bool canLookAround = true; // 控制是否可以用鼠标朝向  
 
-    public MiniMap miniMap;
+    //public MiniMap miniMap;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
