@@ -8,7 +8,7 @@ public class Level3tow : MonoBehaviour
     public void SwitchScene()
     {
 
-        SceneManager.LoadScene("Main3(Select2)");
+        SceneManager.LoadScene("Main3(Level2)");
 
 
     }

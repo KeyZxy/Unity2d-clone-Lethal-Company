@@ -10,10 +10,16 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     public void Change()
     {
-        player.Coin=0;
-        tex.text = "你已经获得手枪";
-        player.skillName = "Gun";
-
+        if (player.Coin >= 200)
+        {
+            player.Coin -= 200;
+            tex.text = "你已经获得手枪";
+            player.skillName = "Gun";
+        }
+        else
+        {
+            tex.text = "金币不足，无法购买";
+        }
     }
 
    

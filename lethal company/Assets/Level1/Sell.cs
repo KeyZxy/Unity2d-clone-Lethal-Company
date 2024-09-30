@@ -7,7 +7,13 @@ public class Sell : MonoBehaviour
 {
     private bool playerInArea = false;  // 检查玩家是否在区域内
     private Player playerComponent;  // 玩家组件
+    public Canvas shop;
+    private bool isShopActive = false; // 输入框是否激活 
 
+    private void Start()
+    {
+        shop.gameObject.SetActive(false);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))  // 确保进入区域的是玩家
@@ -28,6 +34,11 @@ public class Sell : MonoBehaviour
 
     void Update()
     {
+        if (shop == null)
+        {
+            GameObject shopob = GameObject.FindWithTag("Shop");
+            shop=shopob.GetComponent<Canvas>();
+        }
         // 检查玩家是否在区域内并按下E键
         if (playerInArea && playerComponent != null && Input.GetKeyDown(KeyCode.E))
         {
@@ -36,11 +47,22 @@ public class Sell : MonoBehaviour
         // 检查玩家是否在区域内并按下R键
         if (playerInArea && playerComponent != null && Input.GetKeyDown(KeyCode.R))
         {
-            // 记录当前场景名称  
-            PlayerPrefs.SetString("CurrentMainScene", SceneManager.GetActiveScene().name);
-            // 可以加载商店场景，例如：  
-            SceneManager.LoadScene("Shop"); // 替换为你的商店场景名称  
+            //// 记录当前场景名称  
+            //PlayerPrefs.SetString("CurrentMainScene", SceneManager.GetActiveScene().name);
+            //// 可以加载商店场景，例如：  
+            //SceneManager.LoadScene("Shop"); // 替换为你的商店场景名称  
+            //shop.gameObject.SetActive(true);
+            ToggleShop();
+            if (playerComponent != null)
+            {
+                playerComponent.SetMouseLookEnabled(!isShopActive); // 关闭商店时启用 MouseLook  
+            }
         }
+    }
+    public void ToggleShop()
+    {
+        isShopActive = !isShopActive;
+        shop.gameObject.SetActive(isShopActive);
     }
 
     void TrySellChest()//按一下e放下物体，按第二下拾取物体并出售

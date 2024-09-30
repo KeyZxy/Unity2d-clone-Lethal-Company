@@ -1001,6 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbfee643331a31479b631257b8688b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInRoom: 0
   doorLeft: {fileID: 2288703646992201933}
   doorRight: {fileID: 979515176440238904}
   doorTop: {fileID: 5218702496546958701}
@@ -1066,6 +1067,10 @@ PrefabInstance:
     - target: {fileID: 1792174715062483790, guid: 33c582397c5a3764a91fc389102419a2, type: 3}
       propertyPath: m_Name
       value: Station 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792174715062483790, guid: 33c582397c5a3764a91fc389102419a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1970435518609058351, guid: 33c582397c5a3764a91fc389102419a2, type: 3}
       propertyPath: m_LocalScale.x
