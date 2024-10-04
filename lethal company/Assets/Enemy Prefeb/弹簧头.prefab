@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4604320541699155802}
   - component: {fileID: 5451185254760277204}
   - component: {fileID: -7254239405992514128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u5F39\u7C27\u5934"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -173,4 +173,3 @@ MonoBehaviour:
   hurt: 0
   playerInside: 0
   canAttack: 1
-  attackCooldown: 5

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9174183270208416488}
   - component: {fileID: 1191739108888166128}
   - component: {fileID: 6219883267841889773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shilaimu
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3072142590676860102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7185060175479581667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 6494564068659586476}
   - component: {fileID: 1570403786351310126}
   - component: {fileID: 1119409410637406645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 10
+  vision: 4
   pickupRange: 1
   holdParent: {fileID: 7185060175479581667}
   pickedObject: {fileID: 0}
@@ -252,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718685222117970524}
   - component: {fileID: 1791329872544937360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

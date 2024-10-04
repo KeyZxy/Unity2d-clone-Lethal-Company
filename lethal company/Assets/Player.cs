@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     public InputField inputField; // 添加一个输入框引用  
     private bool isInputFieldActive = false; // 输入框是否激活  
 
+    public RawImage rawImage; // 添加一个小地图引用  
+    private bool isRawImageActive = false; // 小地图是否激活  
+
     public bool canLookAround = true; // 控制是否可以用鼠标朝向  
 
     //public MiniMap miniMap;
@@ -95,6 +98,8 @@ public class Player : MonoBehaviour
         {
             //canLookAround = false;
             ToggleInputField();
+            ToggleRawImage();
+
         }
         if (canLookAround)
         {
@@ -148,6 +153,12 @@ public class Player : MonoBehaviour
             inputField.ActivateInputField();
         }
         
+    }
+    void ToggleRawImage()
+    {
+        canLookAround = isRawImageActive;
+        isRawImageActive = !isRawImageActive;
+        rawImage.gameObject.SetActive(isRawImageActive);
     }
 
     void ShootBullet()

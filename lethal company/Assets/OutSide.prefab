@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1250446076456065037}
   - component: {fileID: 4607207157084534587}
   - component: {fileID: 1648736791165664769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbfee643331a31479b631257b8688b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInRoom: 0
   doorLeft: {fileID: 1722262359861792894}
   doorRight: {fileID: 410461393563286411}
   doorTop: {fileID: 4632271005424469470}
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8870603087032401553}
   - component: {fileID: 2949220744721082365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,6 +443,10 @@ PrefabInstance:
     - target: {fileID: 4026450061348337839, guid: 6157898d923fd3a4cba419318fd80707, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026450061348337839, guid: 6157898d923fd3a4cba419318fd80707, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

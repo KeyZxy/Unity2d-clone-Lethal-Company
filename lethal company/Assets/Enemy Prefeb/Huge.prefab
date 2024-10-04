@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3592017299160590868}
   - component: {fileID: 7929501459819804650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fatty_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7593907492580799296}
   - component: {fileID: 2161847894550306467}
   - component: {fileID: 1984713041403242289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Huge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
