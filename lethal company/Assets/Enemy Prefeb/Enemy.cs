@@ -15,13 +15,15 @@ public class Enemy : MonoBehaviour
     public Transform[] patrolPoints; // 巡逻路径上的各个路点
 
     private int currentPatrolIndex = 0; // 当前巡逻点的索引
-    private bool chasingPlayer = false; // 是否在追击玩家
+    protected  bool chasingPlayer = false; // 是否在追击玩家
     private bool hasAttacked = false; // 是否已经攻击过
     public Vector2 origin; // 初始位置
     private bool returningToOrigin = false; // 是否正在返回初始位置
     public BoxCollider2D roomCollider; // 当前房间的碰撞体
 
-    void Start()
+    public int hurt;//不同敌人的攻击伤害
+
+    protected  void Start()
     {
         timer = changeTime;
         origin = transform.position; // 记录敌人的初始位置
@@ -72,7 +74,7 @@ public class Enemy : MonoBehaviour
         // 处理敌人死亡的逻辑，例如播放动画、掉落物品等  
         Destroy(gameObject); // 销毁敌人对象  
     }
-    private void Patrol() // 敌人在路点之间巡逻
+    protected virtual void Patrol() // 敌人在路点之间巡逻
     {
         if (patrolPoints.Length == 0) return; // 没有设置路点时，直接返回
 
@@ -92,7 +94,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void CheckVision() // 检查玩家是否进入视野范围
+    protected virtual void CheckVision() // 检查玩家是否进入视野范围
     {
         if (player == null) return;
 
@@ -109,7 +111,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChasePlayer() // 追击玩家
+    protected virtual void ChasePlayer() // 追击玩家
     {
         if (chasingPlayer && !hasAttacked)
         {
@@ -134,8 +136,8 @@ public class Enemy : MonoBehaviour
         Player playerScript = other.gameObject.GetComponent<Player>(); // 获取玩家脚本
         if (playerScript != null && !hasAttacked) // 如果玩家存在且没有攻击过
         {
-            playerScript.ChangeHealth(-1); // 减少玩家生命值
-            Debug.Log("玩家的生命值减少了 1 点");
+            playerScript.ChangeHealth(-hurt); // 减少玩家生命值
+            Debug.Log($"玩家的生命值减少了{hurt}点");
 
             // 攻击后停止追击并返回原点
             hasAttacked = true;
@@ -144,7 +146,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ReturnToOrigin() // 返回初始位置
+    protected virtual void ReturnToOrigin() // 返回初始位置
     {
         transform.position = Vector2.MoveTowards(transform.position, origin, speed * Time.deltaTime);
 

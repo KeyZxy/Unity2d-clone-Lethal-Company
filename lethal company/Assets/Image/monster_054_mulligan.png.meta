@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: monster_054_mulligan_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57263e99a9531bb43b858e959140cd2b
+      internalID: 1537836853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd652e92e9f97b409fd01fc18f3115f
+      internalID: 858643774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb51ff5c62f71154b82ec68b5455ecd5
+      internalID: -398460854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79f4589e209c914ba8f3910716d96c0
+      internalID: 2069597068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2df0416ea3d2142b49332a2be63e68
+      internalID: 1294462432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_5
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 71
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70369f97bcc9455468e43aaedc29668e
+      internalID: 1368283795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 20
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdd7a456005dad4eb7d2273abf00945
+      internalID: -729756164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 22
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2968218c4cd38a449af44bc7ebd1c66f
+      internalID: 1725166669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_054_mulligan_8
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 21
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7434501ab80612418a49c67dbb491a5
+      internalID: -348808461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +295,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      monster_054_mulligan_0: 1537836853
+      monster_054_mulligan_1: 858643774
+      monster_054_mulligan_2: -398460854
+      monster_054_mulligan_3: 2069597068
+      monster_054_mulligan_4: 1294462432
+      monster_054_mulligan_5: 1368283795
+      monster_054_mulligan_6: -729756164
+      monster_054_mulligan_7: 1725166669
+      monster_054_mulligan_8: -348808461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

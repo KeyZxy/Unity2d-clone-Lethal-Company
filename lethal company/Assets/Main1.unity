@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7167098811152216005, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1551,7 +1555,7 @@ PrefabInstance:
     - target: {fileID: 1119409410637406645, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
       propertyPath: miniMap
       value: 
-      objectReference: {fileID: 1883811090}
+      objectReference: {fileID: 0}
     - target: {fileID: 1119409410637406645, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
       propertyPath: skillName
       value: 
@@ -1614,17 +1618,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 807665933854318337, guid: a3b36b67511d2c74fbf8e4365e1133dd, type: 3}
   m_PrefabInstance: {fileID: 837821987}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1883811090 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6417889455934524233, guid: a3b36b67511d2c74fbf8e4365e1133dd, type: 3}
-  m_PrefabInstance: {fileID: 837821987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 656f3b56de119e9408f4ef94640011d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1970679240
 GameObject:
   m_ObjectHideFlags: 0

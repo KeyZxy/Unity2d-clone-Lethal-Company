@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
             player.Coin -= 200;
             tex.text = "你已经获得手枪";
             player.skillName = "Gun";
+            player.Gun.SetActive(true);
         }
         else
         {

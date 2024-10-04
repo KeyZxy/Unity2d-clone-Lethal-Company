@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float runSpeed = 7f;
     private Vector2 moveInput;
     private Rigidbody2D rb;
+    public float vision = 4.0f;//玩家视野
 
     public float pickupRange = 2f;
     public Transform holdParent;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     public string skillName;
 
     public GameObject bulletPrefab;
+    public GameObject Gun;
     public Transform bulletSpawnPoint;
     public int remainingShots = 0;
 
@@ -42,6 +44,8 @@ public class Player : MonoBehaviour
 
         // 确保一开始输入框是关闭的  
         inputField.gameObject.SetActive(false);
+
+        Gun.gameObject.SetActive(false);
     }
 
     void Update()
@@ -96,12 +100,37 @@ public class Player : MonoBehaviour
         {
             MouseLook();
         }
+
+        // 检测敌人是否在视野范围  
+        CheckEnemyInSight();
         // 如果输入框处于不活动状态，则继续处理鼠标控制  
         //if (!isInputFieldActive)
         //{
         //    MouseLook();
         //}
     }
+    //检查敌人是否在视野范围内
+    private void CheckEnemyInSight()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, vision);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Enemy")) // 确保弹簧怪有“Enemy”标签  
+            {
+                Vector2 direction = collider.transform.position - transform.position;
+                if (Vector2.Angle(direction, transform.up) <= 90f) // 假设玩家面前的视野为45度  
+                {
+                    // 在视野范围内实现其他逻辑，比如通知弹簧怪不能攻击  
+                    Tanhuang tanhuang = collider.GetComponent<Tanhuang>();
+                    if (tanhuang != null)
+                    {
+                        tanhuang.canAttack = false; // 设置弹簧怪不能攻击  
+                    }
+                }
+            }
+        }
+    }
+
     public void SetMouseLookEnabled(bool enabled)
     {
         canLookAround = enabled; // 设置鼠标查看能力  
