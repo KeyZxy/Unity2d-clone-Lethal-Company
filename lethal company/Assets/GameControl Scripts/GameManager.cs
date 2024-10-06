@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public int min;
     public int max;
     public int playerTotalCoin;
+    public float playerHp;
     public float gamingTime = 180;
     public float gamingTimeNow = 0;
     private Player playerComponent;
     public Text countTime; // 计时器文本
     public Text countCoin; // 金钱文本
+    public Text PlayerHp;
     public Text aim; // 目标文本
     private float TextLivingTime;
     private GameObject play;
@@ -34,8 +36,9 @@ public class GameManager : MonoBehaviour
         gamingTimeNow += Time.deltaTime;
         TextLivingTime += Time.deltaTime;
         playerTotalCoin = playerComponent.Coin;
+        playerHp=playerComponent.Hp;
         countCoin.text = $"金钱：{playerTotalCoin}";
-
+        PlayerHp.text = $"生命：{playerHp}";
         // 计算当前时间
         int currentHour = startHour + (int)(gamingTimeNow / 60);
         int currentMinute = (int)(gamingTimeNow % 60);
