@@ -514,9 +514,17 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9140326766706365499, guid: 976ee7a9645ed0d4e80f9bb762367b4c, type: 3}
+      propertyPath: indoorEnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140326766706365499, guid: 976ee7a9645ed0d4e80f9bb762367b4c, type: 3}
       propertyPath: outdoorEnemyPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9140326766706365499, guid: 976ee7a9645ed0d4e80f9bb762367b4c, type: 3}
+      propertyPath: indoorEnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 541564506887970417, guid: 8af6c2c7ee4b004489eb895b4dab1960, type: 3}
     - target: {fileID: 9140326766706365499, guid: 976ee7a9645ed0d4e80f9bb762367b4c, type: 3}
       propertyPath: outdoorEnemyPrefabs.Array.data[0]
       value: 

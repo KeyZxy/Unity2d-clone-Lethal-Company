@@ -242,7 +242,14 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 3072142590676860102}
   remainingShots: 100
   inputField: {fileID: 0}
+  rawImage: {fileID: 0}
   canLookAround: 1
+  viewRadius: 5
+  viewAngleStep: 20
+  viewAngle: 90
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8237102484708247780
 GameObject:
   m_ObjectHideFlags: 0

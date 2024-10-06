@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy(Level1)(Left)
       objectReference: {fileID: 0}
+    - target: {fileID: 925485126305874467, guid: c2586a14bddc6a94cb3db47b8ed95091, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1401221203395561690, guid: c2586a14bddc6a94cb3db47b8ed95091, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.007015
@@ -564,6 +568,10 @@ PrefabInstance:
     - target: {fileID: 925485126305874467, guid: c2586a14bddc6a94cb3db47b8ed95091, type: 3}
       propertyPath: m_Name
       value: Enemy(Level1) (Up)
+      objectReference: {fileID: 0}
+    - target: {fileID: 925485126305874467, guid: c2586a14bddc6a94cb3db47b8ed95091, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1401221203395561690, guid: c2586a14bddc6a94cb3db47b8ed95091, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1753,6 +1761,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389894905306439200, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+      propertyPath: playerCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1119409410637406645, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
       propertyPath: Coin
       value: 200
@@ -1813,9 +1825,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158769207122297627, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6579098114545808418, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7195829106195487235, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195829106195487235, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237102484708247780, guid: ca909a6a9f1d45f42a872e59231fb3b4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

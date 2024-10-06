@@ -123,11 +123,8 @@ public class Enemy : MonoBehaviour
                 transform.position = targetPosition;
             }
 
-            // 如果敌人接近玩家，尝试触发攻击
-            if (Vector2.Distance(transform.position, player.transform.position) < 0.5f)
-            {
-                // 在 OnCollisionEnter2D 中处理实际的碰撞检测和伤害
-            }
+            
+           
         }
     }
 

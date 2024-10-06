@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f53578f5260e3642907b1a95e99371a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   EnemyHp: 10
   changeTime: 3
   player: {fileID: 0}
@@ -170,6 +170,6 @@ MonoBehaviour:
   patrolPoints: []
   origin: {x: 0, y: 0}
   roomCollider: {fileID: 0}
-  hurt: 0
+  hurt: 100
   playerInside: 0
   canAttack: 1

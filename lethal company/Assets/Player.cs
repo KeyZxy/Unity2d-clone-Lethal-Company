@@ -39,7 +39,11 @@ public class Player : MonoBehaviour
 
     public bool canLookAround = true; // 控制是否可以用鼠标朝向  
 
-    //public MiniMap miniMap;
+    public float viewRadius = 5f; // 视野距离
+    public int viewAngleStep = 20; // 射线密度
+    [Range(0, 360)]
+    public float viewAngle = 90f; // 视野角度
+    public LayerMask enemyLayer; // 添加一个LayerMask，专门检测敌人层
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -106,35 +110,42 @@ public class Player : MonoBehaviour
             MouseLook();
         }
 
-        // 检测敌人是否在视野范围  
-        CheckEnemyInSight();
-        // 如果输入框处于不活动状态，则继续处理鼠标控制  
-        //if (!isInputFieldActive)
-        //{
-        //    MouseLook();
-        //}
+        DrawFieldOfView();
+
     }
-    //检查敌人是否在视野范围内
-    private void CheckEnemyInSight()
+    void DrawFieldOfView()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, vision);
-        foreach (Collider2D collider in colliders)
+        // 计算最左侧方向的向量
+        Vector3 forward_left = Quaternion.Euler(0, 0, -(viewAngle / 2f)) * transform.right * viewRadius;
+
+        for (int i = 0; i <= viewAngleStep; i++)
         {
-            if (collider.CompareTag("Enemy")) // 确保弹簧怪有“Enemy”标签  
+            Vector3 v = Quaternion.Euler(0, 0, (viewAngle / viewAngleStep) * i) * forward_left; // 根据当前角度计算方向向量
+            Vector3 pos = (Vector2)transform.position + (Vector2)v; // 计算射线终点
+
+            // 在Scene中绘制线条(仅方便观察，Game视图中不可见)
+            Debug.DrawLine(transform.position, pos, Color.red);
+
+            // 射线检测 (2D)
+            RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, v, viewRadius, enemyLayer);
+            if (hitInfo.collider != null)
             {
-                Vector2 direction = collider.transform.position - transform.position;
-                if (Vector2.Angle(direction, transform.up) <= 90f) // 假设玩家面前的视野为45度  
+                Debug.Log("检测到物体：" + hitInfo.collider.name); // 输出检测到的物体名称
+
+                // 如果射线击中碰撞体且物体标签为"Enemy"
+                if (hitInfo.collider.tag == "Enemy")
                 {
-                    // 在视野范围内实现其他逻辑，比如通知弹簧怪不能攻击  
-                    Tanhuang tanhuang = collider.GetComponent<Tanhuang>();
-                    if (tanhuang != null)
+                    Debug.Log("视野内有敌人");
+                    Tanhuang tanhuangEnemy = hitInfo.collider.GetComponent<Tanhuang>();
+                    if (tanhuangEnemy != null)
                     {
-                        tanhuang.canAttack = false; // 设置弹簧怪不能攻击  
+                        tanhuangEnemy.SetInPlayerSight(true); // 设置弹簧怪在玩家视野内
                     }
                 }
             }
         }
     }
+
 
     public void SetMouseLookEnabled(bool enabled)
     {

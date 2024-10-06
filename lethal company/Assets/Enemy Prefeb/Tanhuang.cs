@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tanhuang : Enemy
@@ -7,7 +5,7 @@ public class Tanhuang : Enemy
     public bool playerInside = false; // 判断玩家是否在房间内  
     private Player playerScript; // 存储玩家的 Player 脚本引用  
     public bool canAttack = true; // 控制弹簧怪是否可以攻击
-    //private bool isInSight = false; // 判断弹簧怪是否在玩家的视野内
+    private bool isInSight = false; // 是否在玩家视野内
 
     protected void Start()
     {
@@ -35,25 +33,20 @@ public class Tanhuang : Enemy
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        // 检查弹簧怪是否在玩家视野内  
-       // CheckIfInSight();
-
         // 如果玩家在房间内，并且不在玩家视野内，且距离满足条件，弹簧怪可以进行追击
-        if (playerInside  && distance >= playerScript.vision && canAttack )
+        if (playerInside && distance >= playerScript.vision && canAttack && !isInSight)
         {
             ChasePlayer();
         }
+
+        // 重置 isInSight 为 false，每帧都需要重新检测
+        isInSight = false;
     }
 
-    // 检查弹簧怪是否在玩家的视野范围内
-    //private void CheckIfInSight()
-    //{
-    //    Vector2 direction = player.transform.position - transform.position;
-    //    float angle = Vector2.Angle(playerScript.transform.up, direction);
-
-    //    // 判断弹簧怪是否在玩家的视野角度（45度）内
-    //    isInSight = (angle <= 45f);
-    //}
+    public void SetInPlayerSight(bool inSight)
+    {
+        isInSight = inSight; // 设置是否在玩家视野内
+    }
 
     protected override void Patrol() // 重写的巡逻逻辑，空实现  
     {
@@ -91,12 +84,5 @@ public class Tanhuang : Enemy
         {
             transform.position = targetPosition;
         }
-
-        // 如果弹簧怪接近玩家，进行攻击  
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.5f)
-        {
-           // AttackPlayer();
-        }
     }
-
 }

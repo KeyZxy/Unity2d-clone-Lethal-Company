@@ -63,11 +63,7 @@ public class Huge : Enemy
             transform.position = targetPosition;
         }
 
-        // 如果 Slime 接近玩家，尝试攻击  
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.5f)
-        {
-            // 这里可以放置攻击的逻辑  
-        }
+       
 
     }
 }
