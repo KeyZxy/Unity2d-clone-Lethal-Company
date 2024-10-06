@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &130029983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4186802744260798209, guid: ffadcc5d707e5b94f8661048d0823ac6, type: 3}
+  m_PrefabInstance: {fileID: 649006130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +297,7 @@ GameObject:
   - component: {fileID: 598610313}
   - component: {fileID: 598610311}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: CameraMinimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,6 +671,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1348162727}
+    - target: {fileID: 3676210929798424874, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 130029983}
+    - target: {fileID: 3676210929798424874, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1348162727}
     - target: {fileID: 7167098811152216005, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
       propertyPath: m_Name
       value: ShopCanvas
@@ -1028,7 +1047,7 @@ GameObject:
   - component: {fileID: 1978284334}
   - component: {fileID: 1978284333}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasMinimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

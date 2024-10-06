@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     public int Coin;
 
-    public string skillName;
+    public string skillName;//µÀ¾ß
 
     public GameObject bulletPrefab;
     public GameObject Gun;

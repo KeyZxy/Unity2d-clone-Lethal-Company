@@ -214,6 +214,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1870993801}
+    - target: {fileID: 3676210929798424874, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1585524084}
+    - target: {fileID: 3676210929798424874, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1870993801}
     - target: {fileID: 7167098811152216005, guid: 847f95be2181bfd4c95e2276e13f2269, type: 3}
       propertyPath: m_Name
       value: ShopCanvas
@@ -712,6 +720,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585524084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4186802744260798209, guid: ffadcc5d707e5b94f8661048d0823ac6, type: 3}
+  m_PrefabInstance: {fileID: 1099885827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1599615587
 PrefabInstance:
   m_ObjectHideFlags: 0

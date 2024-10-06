@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/UI/Start.unity
     guid: 2fe79360c33f8bc47bb9ce79c2a7dd86
   - enabled: 1
-    path: Assets/Main1.unity
+    path: Assets/Main Scene/Main1.unity
     guid: 14a2430fd109a08429c462b16fc369a6
   - enabled: 1
     path: Assets/UI/win.unity
@@ -21,12 +21,12 @@ EditorBuildSettings:
     path: Assets/UI/Main3.unity
     guid: f695e25133ecd4e408ed4066c3abeed6
   - enabled: 1
-    path: Assets/Main3(Level1).unity
+    path: Assets/Main Scene/Main3(Level1).unity
     guid: b165d0915fd76f44c86d524a340a35c0
   - enabled: 1
-    path: Assets/Main3(Level2).unity
+    path: Assets/Main Scene/Main3(Level2).unity
     guid: bd97f5c4dd4abe74c85dc75297240f17
   - enabled: 1
-    path: Assets/Main2.unity
+    path: Assets/Main Scene/Main2.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
